@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN" ng-app="myApp">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../../public/bootstrap/css/bootstrap.min.css">
+	<style type="text/css">
+		body {
+			margin: 30px;
+		}
+	</style>
+</head>
+<body>
+	<h1>AngularJS Isolated Scope</h1>
+	There are <strong>three</strong> ways to interact with isolated scope: via an attribute, binding or expression.
+	<hr>
+	<h2>With an Attribute @</h2>
+	<div ng-controller="AttributeCtrl as ctrl">
+		<div class="well">
+			<p>Communicating with isolated scope via an attribute is uni-directional between parent and child. Change the property in the parent input and watch it change the property in the child directive. What happens when you change the property directly in the child directive?</p>
+			<input class="form-control" type="text" ng-model="ctrl.parentName">
+			<div attribute-box class="well directive" local-name={{ctrl.parentName}}></div>
+		</div>
+	</div>
+	<h2>With a Binding =</h2>
+	<div ng-controller="BindingCtrl as ctrl">
+		<div class="well">
+			<p>Communicating with isolated scope via a binding is bi-directional from parent to child. Change a property in either child or parent and watch it update in the other.</p>
+			<input class="form-control" type="text" ng-model="ctrl.parentItem.name">
+			<input class="form-control" type="text" ng-model="ctrl.parentItem.description">
+			<div binding-box class="well directive" local-item="ctrl.parentItem"></div>
+		</div>
+	</div>
+	<h2>With an Expression &</h2>
+	<div ng-controller="ExpressionCtrl as ctrl">
+		<div class="well">
+			<p>Communicating with isolated scope via an expression is uni-directional from child to parent. Enter a property in the child directive and click <strong>Send</strong>. Notice that the directive calls whatever parent method you defined on the element.</p>
+			<h4>{{ctrl.hello}}</h4>
+			<h4>{{ctrl.goodbye}}</h4>
+			<hr>
+			<h4>Directive One</h4>
+			<div expression-box class="well directive" local-expression="ctrl.sayHello(message)"></div>
+			<h4>Directive Two</h4>
+			<div expression-box class="well directive" local-expression="ctrl.sayGoodbye(message)"></div>
+		</div>
+	</div>
+</body>
+<script src="../../public/angular/angular.min.js"></script>
+<script src="../js/angularIsolatedScope.js"></script>
+</html>
