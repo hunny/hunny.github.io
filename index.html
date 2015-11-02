@@ -1,50 +1,84 @@
 <!doctype html>
-<html lang="zh-CN" ng-app="myApp">
+<html lang="zh-CN">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css">
-	<style type="text/css">
-		body {
-			margin: 30px;
-		}
-	</style>
-</head>
-<body>
-	<h1>AngularJS Isolated Scope</h1>
-	There are <strong>three</strong> ways to interact with isolated scope: via an attribute, binding or expression.
-	<hr>
-	<h2>With an Attribute @</h2>
-	<div ng-controller="AttributeCtrl as ctrl">
-		<div class="well">
-			<p>Communicating with isolated scope via an attribute is uni-directional between parent and child. Change the property in the parent input and watch it change the property in the child directive. What happens when you change the property directly in the child directive?</p>
-			<input class="form-control" type="text" ng-model="ctrl.parentName">
-			<div attribute-box class="well directive" local-name={{ctrl.parentName}}></div>
-		</div>
-	</div>
-	<h2>With a Binding =</h2>
-	<div ng-controller="BindingCtrl as ctrl">
-		<div class="well">
-			<p>Communicating with isolated scope via a binding is bi-directional from parent to child. Change a property in either child or parent and watch it update in the other.</p>
-			<input class="form-control" type="text" ng-model="ctrl.parentItem.name">
-			<input class="form-control" type="text" ng-model="ctrl.parentItem.description">
-			<div binding-box class="well directive" local-item="ctrl.parentItem"></div>
-		</div>
-	</div>
-	<h2>With an Expression &</h2>
-	<div ng-controller="ExpressionCtrl as ctrl">
-		<div class="well">
-			<p>Communicating with isolated scope via an expression is uni-directional from child to parent. Enter a property in the child directive and click <strong>Send</strong>. Notice that the directive calls whatever parent method you defined on the element.</p>
-			<h4>{{ctrl.hello}}</h4>
-			<h4>{{ctrl.goodbye}}</h4>
-			<hr>
-			<h4>Directive One</h4>
-			<div expression-box class="well directive" local-expression="ctrl.sayHello(message)"></div>
-			<h4>Directive Two</h4>
-			<div expression-box class="well directive" local-expression="ctrl.sayGoodbye(message)"></div>
-		</div>
-	</div>
-</body>
-<script src="public/angular/angular.min.js"></script>
-<script src="src/js/index.js"></script>
-</html>
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- <link rel="icon" href="../../favicon.ico"> -->
+
+	<title>Blog</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="src/css/index.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  </head>
+  <body>
+  	<div class="header">
+  		<div class="container">
+  			<nav class="navbar navbar-default">
+  				<div class="container-fluid">
+  					<!-- Brand and toggle get grouped for better mobile display -->
+  					<div class="navbar-header">
+  						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+  							<span class="sr-only">Toggle navigation</span>
+  							<span class="icon-bar"></span>
+  							<span class="icon-bar"></span>
+  							<span class="icon-bar"></span>
+  						</button>
+  						<a class="navbar-brand" href="#">Hunny.Hu</a>
+  					</div>
+  					<!-- Collect the nav links, forms, and other content for toggling -->
+  					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  						<ul class="nav navbar-nav">
+  							<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+  							<li><a href="#">Link</a></li>
+  							<li class="dropdown">
+  								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+  								<ul class="dropdown-menu">
+  									<li><a href="#">Action</a></li>
+  									<li><a href="#">Another action</a></li>
+  									<li><a href="#">Something else here</a></li>
+  									<li role="separator" class="divider"></li>
+  									<li><a href="#">Separated link</a></li>
+  									<li role="separator" class="divider"></li>
+  									<li><a href="#">One more separated link</a></li>
+  								</ul>
+  							</li>
+  						</ul>
+  						<form class="navbar-form navbar-right" role="search">
+  							<div class="form-group">
+  								<input type="text" class="form-control" placeholder="Search">
+  							</div>
+  							<button type="submit" class="btn btn-default">Submit</button>
+  						</form>
+  					</div><!-- /.navbar-collapse -->
+  				</div><!-- /.container-fluid -->
+  			</nav>
+  		</div>
+  	</div>
+  	<div class="footer navbar-fixed-bottom" role="footer">
+  		<div class="container">
+  			<nav class="navbar navbar-default navbar-footer">
+  				<div class="container-fluid">
+  						<h6 class="text-center">Blog for <a href="http://hunny.github.io">Hunny.Hu</a> by <a href="https://twitter.com/hunny.hu">@Hunny.Hu</a>.</h6>
+  				</div>
+  			</nav>
+  		</div>
+  	</div>
+  	<script src="public/jquery/jquery.min.js"></script>
+  	<script src="public/bootstrap/js/bootstrap.min.js"></script>
+  	<script src="public/angular/angular.min.js"></script>
+  	<script src="src/js/index.js"></script>
+  </body>
+  </html>
