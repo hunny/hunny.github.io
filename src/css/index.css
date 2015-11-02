@@ -1,3 +1,26 @@
-.navbar-footer {
-	margin-bottom:2px;
+body { 
+	padding-top: 70px;
+	padding-bottom: 70px; 
+}
+@media (max-width: 767px) {
+	.nav-padding-rl0 {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.mynavbar-form {
+		margin-top: 0px;
+		margin-bottom: 0px;
+		border-bottom:0px;
+	}
+}
+@media (min-width: 768px) {
+	.mynavbar-form {
+		margin-top: 8px;
+		margin-bottom: 8px;
+		border-bottom:0px;
+	}
+	.nav-padding-rl0 {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
 }
