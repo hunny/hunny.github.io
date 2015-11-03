@@ -1,58 +1,40 @@
 (function(angular){
     'use strict';
-    var isolatedApp = angular.module('myApp', []);
+    var myApp = angular.module('myApp', []);
     // Attribute Isolated Scope
-    isolatedApp.controller('AttributeCtrl', function() {
-        var ctrl = this;
-        ctrl.parentName = 'Attribute Controller';  
-    });
-    isolatedApp.directive('attributeBox', function() {
-        return {
-          template: '<input class="form-control" type="text" ng-model="localName">',
-              scope: {
-                localName: '@'
-            }
-        }
-    });
-    // Binding Isolated Scope
-    isolatedApp.controller('BindingCtrl', function(){
-        var ctrl = this;
-        ctrl.parentItem = {
-          name: 'Binding Controller',
-          description: 'Binding Description'
-      };
-    });
-    isolatedApp.directive('bindingBox', function() {
-        return {
-          template: '<input class="form-control" type="text" ng-model="localItem.name">'
-          +'<input class="form-control" type="text" ng-model="localItem.description">',
-              scope: {
-                localItem: '='
-            }
-        }
-    });
-    // Expression Isolated Scope
-    isolatedApp.controller('ExpressionCtrl', function() {
-        var ctrl = this;
-        ctrl.hello = 'Hello Message'; 
-        ctrl.goodbye = 'Goodbye Message';
-        
-        ctrl.sayHello = function(message) {
-            ctrl.hello = message;
-        }
-        ctrl.sayGoodbye = function(message) {
-            ctrl.goodbye = message;
-        }
-    });
-    isolatedApp.directive('expressionBox', function(){
-        return {
-            template: ' <div class="input-group"><input class="form-control" type="text" ng-model="message" placeholder="Enter a message">'
-            + '<span class="input-group-btn">'
-            + '<button type="button" class="btn btn-default" ng-click="localExpression({message:message})">Send</button></span></div>',
-            scope: {
-                localExpression:'&'
-            }
-        }
+    myApp.controller('indexController', function($scope) {
+        $scope.items = [
+            [{
+                name: '早起_定期锻炼',
+                type: 'png'
+            }, {
+                name: '走出安逸区_不惧怕竞争',
+                type: 'png'
+            }, {
+                name: '克服恐惧_时刻升级自己',
+                type: 'png'
+            }],
+            [{
+                name: '学会独处_对自己的成长负责',
+                type: 'png'
+            }, {
+                name: '改掉一个坏习惯_养成一个好习惯',
+                type: 'png'
+            }, {
+                name: '远离消极人群_离开电视',
+                type: 'png'
+            }],
+            [{
+                name: '坚持阅读_尝试学一门新课程',
+                type: 'png'
+            }, {
+                name: '立即行动_向人学习',
+                type: 'png'
+            }, {
+                name: '听取别人的意见_了解自身缺点',
+                type: 'png'
+            }]
+        ];
     });
 })(window.angular);
 
