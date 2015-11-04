@@ -90,7 +90,7 @@
             <div class="row hidden" ng-repeat="item in items"><span class="hidden" ng-init="pindex=$index"></span>
                 <div class="col-xs-12 col-sm-6 col-sm-image-3 col-md-4 col-lg-4" ng-repeat="image in item">
                     <div class="thumbnail">
-                        <img lazy-img="src/resource/indexImg/{{image.name}}.{{image.type}}" src="#" class="img-responsive" alt="{{image.name}}">
+                        <img lazy-img="src/resource/indexImg/{{image.name}}.{{image.type}}" src="src/img/defaultimage.png" class="img-responsive" alt="{{image.name}}">
                         <div class="caption">
                             <h4>...</h4>
                             <p><span ng-bind="{{(3*pindex + $index + 1)}}"></span>.<span>{{image.desc}}</span></p>
@@ -105,6 +105,7 @@
                 <h6 class="text-center">Copyright ©2015 <a href="http://hunny.github.io">Hunny.Hu</a> & <a href="http://hunny.github.io">@Hunny.Hu</a>.</h6>
             </div>
         </nav>
+        <div class="hidden"><img class="identifyimage" src="src/img/defaultimage.png" /></div>
         <script src="public/jquery/jquery.min.js"></script>
         <script src="public/bootstrap/js/bootstrap.min.js"></script>
         <script src="public/angular/angular.min.js"></script>

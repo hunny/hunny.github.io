@@ -2,7 +2,9 @@
     'use strict';
     angular.element(document).ready(function () {
         //console.log('page loading completed');
-        $('div.row, div.progress').toggleClass('hidden');
+        $('img.identifyimage').bind('load', function() {
+            $('div.row, div.progress').toggleClass('hidden');
+        });
     });
     var myApp = angular.module('myApp', ['angularLazyImg']);
     // Attribute Isolated Scope
