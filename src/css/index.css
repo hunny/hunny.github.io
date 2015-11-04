@@ -24,3 +24,8 @@ body {
 		padding-right: 0px;
 	}
 }
+@media (min-width: 768px) and (max-width: 991px) {
+	.col-sm-image-3 {
+		width:33.33333333%;
+	}
+}
