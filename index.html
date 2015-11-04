@@ -1,23 +1,23 @@
 <!doctype html>
 <html lang="zh-CN" ng-app="myApp">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <!-- <link rel="icon" href="../../favicon.ico"> -->
-        <title>Blog</title>
-        <!-- Bootstrap core CSS -->
-        <link href="public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Custom styles for this template -->
-        <link href="src/css/index.css" rel="stylesheet">
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-        <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="icon" href="../../favicon.ico"> -->
+    <title>Blog</title>
+    <!-- Bootstrap core CSS -->
+    <link href="public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="src/css/index.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
     </head>
     <body ng-controller="indexController">
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -25,10 +25,10 @@
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">Hunny.Hu</a>
                 </div>
@@ -56,7 +56,7 @@
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Search for...">
                                     <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">搜索</button>
+                                        <button class="btn btn-default" type="button">搜索</button>
                                     </span>
                                 </div>
                             </form>
@@ -76,13 +76,24 @@
             </div>
         </nav>
         <div class="container container-fluid">
-            <div class="row" ng-repeat="item in items">
+            <div class="progress">
+                <div class="progress-bar progress-bar-success active" style="width: 35%">
+                    <span class="sr-only">35% Complete (success)</span>
+                </div>
+                <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 40%">
+                    <span class="sr-only">40% Complete (warning)</span>
+                </div>
+                <div class="progress-bar progress-bar-danger active" style="width: 25%">
+                    <span class="sr-only">25% Complete (danger)</span>
+                </div>
+            </div>
+            <div class="row hidden" ng-repeat="item in items">
                 <div class="col-xs-12 col-sm-6 col-sm-image-3 col-md-4 col-lg-4" ng-repeat="image in item">
                     <div class="thumbnail">
-                        <img src="src/resource/indexImg/{{image.name}}.{{image.type}}" class="img-responsive" alt="{{image.name}}">
+                        <img lazy-img="src/resource/indexImg/{{image.name}}.{{image.type}}" src="#" class="img-responsive" alt="{{image.name}}">
                         <div class="caption">
                             <h4>...</h4>
-                            <p>{{($index + 1)}}. {{image.name.replace('_', '，')}}</p>
+                            <p><span ng-bind="{{($index + 1)}}"></span>.<span>{{image.desc}}</span></p>
                             <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                         </div>
                     </div>
@@ -97,6 +108,7 @@
         <script src="public/jquery/jquery.min.js"></script>
         <script src="public/bootstrap/js/bootstrap.min.js"></script>
         <script src="public/angular/angular.min.js"></script>
+        <script src="src/js/angularLazyImg.js"></script>
         <script src="src/js/index.js"></script>
     </body>
 </html>
