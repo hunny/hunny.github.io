@@ -87,13 +87,13 @@
                     <span class="sr-only">25% Complete (danger)</span>
                 </div>
             </div>
-            <div class="row hidden" ng-repeat="item in items">
+            <div class="row hidden" ng-repeat="item in items"><span class="hidden" ng-init="pindex=$index"></span>
                 <div class="col-xs-12 col-sm-6 col-sm-image-3 col-md-4 col-lg-4" ng-repeat="image in item">
                     <div class="thumbnail">
                         <img lazy-img="src/resource/indexImg/{{image.name}}.{{image.type}}" src="#" class="img-responsive" alt="{{image.name}}">
                         <div class="caption">
                             <h4>...</h4>
-                            <p><span ng-bind="{{($index + 1)}}"></span>.<span>{{image.desc}}</span></p>
+                            <p><span ng-bind="{{(3*pindex + $index + 1)}}"></span>.<span>{{image.desc}}</span></p>
                             <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                         </div>
                     </div>
