@@ -10,9 +10,9 @@
     <!-- <link rel="icon" href="../../favicon.ico"> -->
     <title>Blog</title>
     <!-- Bootstrap core CSS -->
-    <link href="public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="src/css/index.css" rel="stylesheet">
+    <link href="../../src/css/index.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,8 +35,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="/index.html">Home<span class="sr-only">(current)</span></a></li>
-                        <li><a href="/src/view/life.html">About</a></li>
+                        <li><a href="/index.html">Home<span class="sr-only">(current)</span></a></li>
+                        <li class="active"><a href="/src/view/life.html">About</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -76,7 +76,7 @@
             </div>
         </nav>
         <div class="container container-fluid">
-            <div class="hidden"><img class="identifyimage" src="src/img/defaultimage.png" /></div>
+            <div class="hidden"><img class="identifyimage" src="../../src/img/defaultimage.png" /></div>
             <div class="progress">
                 <div class="progress-bar progress-bar-success active" style="width: 35%">
                     <span class="sr-only">35% Complete (success)</span>
@@ -91,16 +91,16 @@
             <div class="row hidden">
                 <div class="col-sm-12">
                     <div class="alert alert-success" role="alert">
-                        <h4 class="text-center">坚持做18件事，努力提升自己</h4>
+                        <h4 class="text-center" ng-bind="title"></h4>
                     </div>
                 </div>
             </div>
             <div class="row hidden" ng-repeat="item in items"><span class="hidden" ng-init="pindex=$index"></span>
                 <div class="col-xs-12 col-sm-6 col-sm-image-3 col-md-4 col-lg-4" ng-repeat="image in item">
                     <div class="thumbnail">
-                        <img lazy-img="src/resource/indexImg/{{image.name}}.{{image.type}}" src="src/img/defaultimage.png" class="img-responsive" alt="{{image.name}}">
+                        <img lazy-img="../../src/resource/life/{{image.name}}.{{image.type}}" src="src/img/defaultimage.png" class="img-responsive" alt="{{image.name}}">
                         <div class="caption">
-                            <h4>...</h4>
+                            <h4 ng-bind="image.imgtitle"></h4>
                             <p><span ng-bind="{{(3*pindex + $index + 1)}}"></span>.<span>{{image.desc}}</span></p>
                             <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                         </div>
@@ -112,11 +112,11 @@
                     <div class="media default-background padding-5">
                         <div class="media-left media-middle">
                             <a href="#">
-                                <img class="media-object size-64-64" src="src/img/defaultimage.png" alt="...">
+                                <img class="media-object size-64-64" src="../../src/img/defaultimage.png" alt="...">
                             </a>
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading"><small>回复</small>坚持做18件事，努力提升自己</h4>
+                            <h4 class="media-heading"><small>回复</small>{{title}}</h4>
                             <p>我是洋洋，来哼唧哼唧捣捣蛋，哈哈哈！</p>
                         </div>
                     </div>
@@ -128,10 +128,10 @@
                 <h6 class="text-center">Copyright ©2015 <a href="http://hunny.github.io">Hunny.Hu</a> & <a href="http://hunny.github.io">@Hunny.Hu</a>.</h6>
             </div>
         </nav>
-        <script src="public/jquery/jquery.min.js"></script>
-        <script src="public/bootstrap/js/bootstrap.min.js"></script>
-        <script src="public/angular/angular.min.js"></script>
-        <script src="src/js/angularLazyImg.js"></script>
-        <script src="src/js/index.js"></script>
+        <script src="../../public/jquery/jquery.min.js"></script>
+        <script src="../../public/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../public/angular/angular.min.js"></script>
+        <script src="../../src/js/angularLazyImg.js"></script>
+        <script src="../../src/js/life.js"></script>
     </body>
 </html>
