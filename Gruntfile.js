@@ -1,5 +1,11 @@
 module.exports = function(grunt) {
 
+  //1. Hello World!
+  // grunt.registerTask('hello', function() {
+  //   console.log('Hello World!');
+  // });
+
+  //2. 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
