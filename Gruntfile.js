@@ -38,7 +38,7 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-      cleanFoldes: {
+      cleanfoldes: {
         src: ["dest/img", "dest/resource", "dest/tpl", "dest/view"]
       },
       js: {
@@ -79,7 +79,6 @@ module.exports = function(grunt) {
           port: 8000,
           base: '.',
           //debug: true,
-          //livereload: true,
           keepalive:true
         }
       },
@@ -87,9 +86,8 @@ module.exports = function(grunt) {
         options: {
           port: 8000,
           open: true,
-          livereload: 35729,
-          base: ['.'],
-          keepalive:true
+          livereload: true,
+          base: '.'
         }
       }
     },
@@ -103,13 +101,9 @@ module.exports = function(grunt) {
       },
       livereload: {
         options: {
-          livereload: '<%= connect.livereload.options.livereload %>'
+          livereload: true
         },
-        files: [
-          './{,*/}*.html',
-          './{,*/}*.css',
-          './images/{,*/}*'
-        ]
+        files: ['index.html']
       }
     }
   });
@@ -131,11 +125,9 @@ module.exports = function(grunt) {
     grunt.warn('There is no tasks to be defineded.\n');
   });
 
-  grunt.registerTask('run', function(target) {
-    grunt.task.run(['connect:livereload', 'watch:livereload']);
-  });
+  grunt.registerTask('run', ['connect:livereload', 'watch:livereload']);
 
-  grunt.registerTask('manual-clean', function() {
+  grunt.registerTask('manualclean', function() {
     var exists = grunt.file.exists('dest');
     if (exists) {
       grunt.file.delete('dest');
@@ -144,7 +136,7 @@ module.exports = function(grunt) {
     grunt.file.copy('README.md', 'dest/README.md');
   });
 
-  grunt.registerTask('grunt-tempalte', function() {
+  grunt.registerTask('grunttempalte', function() {
     console.log(grunt.template.today('yyyy-mm-dd HH:MM:ss'));
     for (var i in grunt.template) {
       console.log(i);
