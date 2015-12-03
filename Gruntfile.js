@@ -11,7 +11,8 @@ module.exports = function(grunt) {
         separator: ';'
       },
       js: {
-        src: ['dest/**/*.js'],
+        //src: ['dest/**/*.js'],
+        src: ['dest/js/angularLazyImg.js','dest/js/index.js'],
         dest: 'dest/js/<%= pkg.name %>.js'
       }
     },
@@ -39,7 +40,7 @@ module.exports = function(grunt) {
     },
     clean: {
       cleanfoldes: {
-        src: ["dest/img", "dest/resource", "dest/tpl", "dest/view"]
+        src: ["dest/tpl", "dest/view"]
       },
       js: {
         src: ["dest/js/*.js", "dest/js/*.md", "!dest/js/*.min.js"]
@@ -125,7 +126,7 @@ module.exports = function(grunt) {
     grunt.warn('There is no tasks to be defineded.\n');
   });
 
-  grunt.registerTask('run', ['connect:livereload', 'watch:livereload']);
+  grunt.registerTask('runlive', ['connect:livereload', 'watch:livereload']);
 
   grunt.registerTask('manualclean', function() {
     var exists = grunt.file.exists('dest');

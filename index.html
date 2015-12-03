@@ -7,12 +7,12 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="src/favicon.ico">
-    <title>Blog</title>
+    <link rel="icon" href="dest/favicon.ico">
+    <title>Hunny.Hu</title>
     <!-- Bootstrap core CSS -->
     <link href="public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="src/css/index.css" rel="stylesheet">
+    <link href="dest/css/myapp.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -30,12 +30,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Hunny.Hu</a>
+                    <a class="navbar-brand" href="/index.html">Hunny.Hu</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="/index.html">Home<span class="sr-only">(current)</span></a></li>
+                        <li class="active"><a href="/home.html">Home<span class="sr-only">(current)</span></a></li>
                         <li><a href="/src/view/life.html">About</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
@@ -98,7 +98,7 @@
             <div class="row hidden" ng-repeat="item in items"><span class="hidden" ng-init="pindex=$index"></span>
                 <div class="col-xs-12 col-sm-6 col-sm-image-3 col-md-4 col-lg-4" ng-repeat="image in item">
                     <div class="thumbnail">
-                        <img lazy-img="src/resource/indexImg/{{image.name}}.{{image.type}}" src="src/img/defaultimage.png" class="img-responsive" alt="{{image.name}}">
+                        <img lazy-img="dest/resource/indexImg/{{image.name}}.{{image.type}}" src="dest/img/defaultimage.png" class="img-responsive" alt="{{image.name}}">
                         <div class="caption">
                             <h4>...</h4>
                             <p><span ng-bind="{{(3*pindex + $index + 1)}}"></span>.<span>{{image.desc}}</span></p>
@@ -112,7 +112,7 @@
                     <div class="media default-background padding-5">
                         <div class="media-left media-middle">
                             <a href="#">
-                                <img class="media-object size-64-64" src="src/img/defaultimage.png" alt="...">
+                                <img class="media-object size-64-64" src="dest/img/defaultimage.png" alt="...">
                             </a>
                         </div>
                         <div class="media-body">
@@ -131,7 +131,6 @@
         <script src="public/jquery/jquery.min.js"></script>
         <script src="public/bootstrap/js/bootstrap.min.js"></script>
         <script src="public/angular/angular.min.js"></script>
-        <script src="src/js/angularLazyImg.js"></script>
-        <script src="src/js/index.js"></script>
+        <script src="dest/js/myapp.min.js"></script>
     </body>
 </html>

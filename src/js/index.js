@@ -12,7 +12,7 @@
         // Do post-load initialization stuff here
         //console.log('angular app load finished......');
     });
-    myApp.controller('indexController', function($scope) {
+    myApp.controller('indexController', ['$scope', function($scope) {
         $scope.items = [
             [{
                 name: '早起_定期锻炼',
@@ -56,6 +56,6 @@
         ];
         $scope.showPage = true;
         $scope.bootstrapshow = 'show';
-    });
+    }]);
 })(window.angular);
 
