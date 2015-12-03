@@ -10,9 +10,9 @@
         return {
           template: '<input class="form-control" type="text" ng-model="localName">',
               scope: {
-                localName: '@'
+                localName:' @'
             }
-        }
+        };
     });
     // Binding Isolated Scope
     isolatedApp.controller('BindingCtrl', function(){
@@ -24,12 +24,11 @@
     });
     isolatedApp.directive('bindingBox', function() {
         return {
-          template: '<input class="form-control" type="text" ng-model="localItem.name">'
-          +'<input class="form-control" type="text" ng-model="localItem.description">',
+          template: '<input class="form-control" type="text" ng-model="localItem.name"><input class="form-control" type="text" ng-model="localItem.description">',
               scope: {
                 localItem: '='
             }
-        }
+        };
     });
     // Expression Isolated Scope
     isolatedApp.controller('ExpressionCtrl', function() {
@@ -39,20 +38,18 @@
         
         ctrl.sayHello = function(message) {
             ctrl.hello = message;
-        }
+        };
         ctrl.sayGoodbye = function(message) {
             ctrl.goodbye = message;
-        }
+        };
     });
     isolatedApp.directive('expressionBox', function(){
         return {
-            template: ' <div class="input-group"><input class="form-control" type="text" ng-model="message" placeholder="Enter a message">'
-            + '<span class="input-group-btn">'
-            + '<button type="button" class="btn btn-default" ng-click="localExpression({message:message})">Send</button></span></div>',
+            template: ' <div class="input-group"><input class="form-control" type="text" ng-model="message" placeholder="Enter a message"><span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="localExpression({message:message})">Send</button></span></div>',
             scope: {
                 localExpression:'&'
             }
-        }
+        };
     });
 })(window.angular);
 
