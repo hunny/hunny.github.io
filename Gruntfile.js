@@ -82,6 +82,15 @@ module.exports = function(grunt) {
           //livereload: true,
           keepalive:true
         }
+      },
+      livereload: {
+        options: {
+          port: 8000,
+          open: true,
+          livereload: 35729,
+          base: ['.'],
+          keepalive:true
+        }
       }
     },
     watch: {
@@ -91,6 +100,16 @@ module.exports = function(grunt) {
       },
       test: {
         files: ['src/js/*.js', 'src/css/**/*.css', 'src/css/**/*.css', 'index.html']
+      },
+      livereload: {
+        options: {
+          livereload: '<%= connect.livereload.options.livereload %>'
+        },
+        files: [
+          './{,*/}*.html',
+          './{,*/}*.css',
+          './images/{,*/}*'
+        ]
       }
     }
   });
@@ -112,7 +131,9 @@ module.exports = function(grunt) {
     grunt.warn('There is no tasks to be defineded.\n');
   });
 
-  grunt.registerTask('run', ['connect:server:livereload', 'watch:build']);
+  grunt.registerTask('run', function(target) {
+    grunt.task.run(['connect:livereload', 'watch:livereload']);
+  });
 
   grunt.registerTask('manual-clean', function() {
     var exists = grunt.file.exists('dest');
