@@ -38,7 +38,7 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-      build: {
+      cleanFoldes: {
         src: ["dest/img", "dest/resource", "dest/tpl", "dest/view"]
       },
       js: {
@@ -48,9 +48,19 @@ module.exports = function(grunt) {
         src: ["dest/css/*.css", "dest/css/*.md", "!dest/css/*.min.css"]
       }
     },
-    qunit: {
-      files: ['test/**/*.html']
+    imagemin: {
+      build: {
+        files:[{
+          expand: true,
+          cwd: 'src/',
+          src: ['**/*.{png,jpg,gif,jpeg}'],
+          dest: 'dest/'
+        }]
+      }
     },
+    //qunit: {
+    //  files: ['test/**/*.html']
+    //},
     jshint: {
       options: {
         globals: {
@@ -63,26 +73,46 @@ module.exports = function(grunt) {
       },
       files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js']
     },
+    connect: {
+      server: {
+        options: {
+          port: 8000,
+          base: '.',
+          //debug: true,
+          //livereload: true,
+          keepalive:true
+        }
+      }
+    },
     watch: {
-      files: ['<%= jshint.files %>'],
-      tasks: ['jshint', 'qunit']
+      build: {
+        files: ['src/js/*.js', 'src/css/**/*.css', 'src/css/**/*.css', 'index.html'],
+        tasks: ['build']
+      },
+      test: {
+        files: ['src/js/*.js', 'src/css/**/*.css', 'src/css/**/*.css', 'index.html']
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   // grunt.loadNpmTasks('grunt-contrib-qunit');
-  // grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('build', ['copy', 'jshint', 'concat', 'uglify', 'cssmin', 'clean']);
 
   grunt.registerTask('default', function() {
     grunt.warn('There is no tasks to be defineded.\n');
   });
+
+  grunt.registerTask('run', ['connect:server:livereload', 'watch:build']);
 
   grunt.registerTask('manual-clean', function() {
     var exists = grunt.file.exists('dest');
@@ -98,6 +128,11 @@ module.exports = function(grunt) {
     for (var i in grunt.template) {
       console.log(i);
     }
+  });
+
+  grunt.event.on('watch', function(action, filepath) {
+    grunt.log.writeln('[+]action at [' + new Date() + '] ==>' + action);
+    grunt.log.writeln('[-]filepath ==>' + filepath);
   });
 
 };
