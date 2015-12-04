@@ -19,7 +19,18 @@
     <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     </head>
-    <body ng-controller="indexController">
+    <body ng-controller="homeController">
+        <div class="progress">
+            <div class="progress-bar progress-bar-success active" style="width: 35%">
+                <span class="sr-only">35% Complete (success)</span>
+            </div>
+            <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 40%">
+                <span class="sr-only">40% Complete (warning)</span><span>加载中，请稍等......</span>
+            </div>
+            <div class="progress-bar progress-bar-danger active" style="width: 25%">
+                <span class="sr-only">25% Complete (danger)</span>
+            </div>
+        </div>
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -77,17 +88,6 @@
         </nav>
         <div class="container container-fluid">
             <div class="hidden"><img class="identifyimage" src="src/img/defaultimage.png" /></div>
-            <div class="progress">
-                <div class="progress-bar progress-bar-success active" style="width: 35%">
-                    <span class="sr-only">35% Complete (success)</span>
-                </div>
-                <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 40%">
-                    <span class="sr-only">40% Complete (warning)</span><span>加载中，请稍等......</span>
-                </div>
-                <div class="progress-bar progress-bar-danger active" style="width: 25%">
-                    <span class="sr-only">25% Complete (danger)</span>
-                </div>
-            </div>
             <div class="row hidden">
                 <div class="col-sm-12">
                     <div class="alert alert-success" role="alert">

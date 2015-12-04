@@ -12,7 +12,7 @@ module.exports = function(grunt) {
       },
       js: {
         //src: ['dest/**/*.js'],
-        src: ['dest/js/angularLazyImg.js','dest/js/index.js'],
+        src: ['dest/js/angularLazyImg.js', 'dest/js/*.controller.js', 'dest/js/app.js'],
         dest: 'dest/js/<%= pkg.name %>.js'
       }
     },
@@ -125,6 +125,8 @@ module.exports = function(grunt) {
   grunt.registerTask('default', function() {
     grunt.warn('There is no tasks to be defineded.\n');
   });
+
+  grunt.registerTask('runserver', ['connect:server']);
 
   grunt.registerTask('runlive', ['connect:livereload', 'watch:livereload']);
 

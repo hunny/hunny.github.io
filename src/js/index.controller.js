@@ -1,18 +1,19 @@
 (function(angular){
     'use strict';
     angular.element(document).ready(function () {
-        //console.log('page loading completed');
+        console.log('index page loading completed');
         $('img.identifyimage').bind('load', function() {
             $('div.row, div.progress').toggleClass('hidden');
         });
     });
-    var myApp = angular.module('myApp', ['angularLazyImg']);
+    var app = angular.module('controller.index', ['angularLazyImg']);
     // Attribute Isolated Scope
-    myApp.run(function() {
+    app.run(function() {
         // Do post-load initialization stuff here
-        //console.log('angular app load finished......');
+        console.log('angular app [controller.index] run load finished......');
     });
-    myApp.controller('indexController', ['$scope', function($scope) {
+    app.controller('indexController', ['$scope', function($scope) {
+        console.log('controller.index loading.');
         $scope.items = [
             [{
                 name: '早起_定期锻炼',
@@ -56,6 +57,7 @@
         ];
         $scope.showPage = true;
         $scope.bootstrapshow = 'show';
+        console.log('controller.index loaded.');
     }]);
 })(window.angular);
 
