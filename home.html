@@ -20,114 +20,11 @@
     <![endif]-->
     </head>
     <body ng-controller="homeController">
-        <div class="progress">
-            <div class="progress-bar progress-bar-success active" style="width: 35%">
-                <span class="sr-only">35% Complete (success)</span>
-            </div>
-            <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 40%">
-                <span class="sr-only">40% Complete (warning)</span><span>加载中，请稍等......</span>
-            </div>
-            <div class="progress-bar progress-bar-danger active" style="width: 25%">
-                <span class="sr-only">25% Complete (danger)</span>
-            </div>
-        </div>
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/index.html">Hunny.Hu</a>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="/home.html">Home<span class="sr-only">(current)</span></a></li>
-                        <li><a href="/src/view/life.html">About</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Mac OS Short Keys</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav list-inline pull-right">
-                        <li>
-                            <form class="navbar-form nav-padding-rl0 mynavbar-form" role="search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search for...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">搜索</button>
-                                    </span>
-                                </div>
-                            </form>
-                        </li>
-                        <li>
-                            <div class="navbar-form nav-padding-rl0 mynavbar-form">
-                                <div class="pull-right">
-                                    <div class="btn-group" role="group">
-                                        <button type="submit" class="btn btn-default">语言</button>
-                                        <button type="submit" class="btn btn-default">登录</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <header></header>
         <div class="container container-fluid">
-            <div class="hidden"><img class="identifyimage" src="src/img/defaultimage.png" /></div>
-            <div class="row hidden">
-                <div class="col-sm-12">
-                    <div class="alert alert-success" role="alert">
-                        <h4 class="text-center">坚持做18件事，努力提升自己</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="row hidden" ng-repeat="item in items"><span class="hidden" ng-init="pindex=$index"></span>
-                <div class="col-xs-12 col-sm-6 col-sm-image-3 col-md-4 col-lg-4" ng-repeat="image in item">
-                    <div class="thumbnail">
-                        <img lazy-img="dest/resource/indexImg/{{image.name}}.{{image.type}}" src="dest/img/defaultimage.png" class="img-responsive" alt="{{image.name}}">
-                        <div class="caption">
-                            <h4>...</h4>
-                            <p><span ng-bind="{{(3*pindex + $index + 1)}}"></span>.<span>{{image.desc}}</span></p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row hidden">
-                <div class="col-sm-12">
-                    <div class="media default-background padding-5">
-                        <div class="media-left media-middle">
-                            <a href="#">
-                                <img class="media-object size-64-64" src="dest/img/defaultimage.png" alt="...">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading"><small>回复</small>坚持做18件事，努力提升自己</h4>
-                            <p>我是洋洋，来哼唧哼唧捣捣蛋，哈哈哈！</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            ABC
         </div>
-        <nav class="navbar navbar-default navbar-fixed-bottom">
-            <div class="container">
-                <h6 class="text-center">Copyright ©2015 <a href="http://hunny.github.io">Hunny.Hu</a> & <a href="http://hunny.github.io">@Hunny.Hu</a>.</h6>
-            </div>
-        </nav>
+        <footer></footer>
         <script src="public/jquery/jquery.min.js"></script>
         <script src="public/bootstrap/js/bootstrap.min.js"></script>
         <script src="public/angular/angular.min.js"></script>

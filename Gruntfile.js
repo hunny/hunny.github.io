@@ -12,7 +12,7 @@ module.exports = function(grunt) {
       },
       js: {
         //src: ['dest/**/*.js'],
-        src: ['dest/js/angularLazyImg.js', 'dest/js/*.controller.js', 'dest/js/app.js'],
+        src: ['dest/js/angularLazyImg.js', 'dest/js/*.directive.js', 'dest/js/*.controller.js', 'dest/js/app.js'],
         dest: 'dest/js/<%= pkg.name %>.js'
       }
     },
@@ -40,13 +40,16 @@ module.exports = function(grunt) {
     },
     clean: {
       cleanfoldes: {
-        src: ["dest/tpl", "dest/view"]
+        src: ["dest/view"]
       },
       js: {
         src: ["dest/js/*.js", "dest/js/*.md", "!dest/js/*.min.js"]
       },
       css: {
         src: ["dest/css/*.css", "dest/css/*.md", "!dest/css/*.min.css"]
+      },
+      tpl: {
+        src: ["!dest/tpl/*.tpl.html"]
       }
     },
     imagemin: {
