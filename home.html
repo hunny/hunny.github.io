@@ -19,36 +19,16 @@
     <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     </head>
-    <body ng-controller="homeController">
+    <body>
         <header></header>
         <div class="container container-fluid">
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr class="active">
-                        <th>序号</th>
-                        <th>名称</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>OK</td>
-                    </tr>
-                    <tr class="active">
-                        <td>2</td>
-                        <td>Oops</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Hoop</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div ng-view></div>
         </div>
         <footer></footer>
         <script src="public/jquery/jquery.min.js"></script>
         <script src="public/bootstrap/js/bootstrap.min.js"></script>
         <script src="public/angular/angular.min.js"></script>
+        <script src="public/angular/angular-route.min.js"></script>
         <script src="dest/js/myapp.min.js"></script>
     </body>
 </html>

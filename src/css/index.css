@@ -15,7 +15,21 @@ body {
 	padding:5px 5px;
 }
 .highlight {
-	background-color: #f7f7f9;
+	background-color: #f8f8f8;
+}
+.table-bordered > thead > tr > th.index {
+	width:45px;
+	text-align: center;
+}
+.table-bordered > thead > tr > th {
+    border-bottom-width: 0;
+}
+.table-bordered > thead > tr:nth-child(2n+1), 
+.table-bordered > tbody > tr:nth-child(2n+2) {
+   background-color: #F8F8F8;
+}
+.table-hover > tbody > tr:hover {
+  background-color: #E8E8D8;
 }
 @media (max-width: 767px) {
 	.nav-padding-rl0 {
