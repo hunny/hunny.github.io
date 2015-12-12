@@ -9,7 +9,7 @@
     <div class="col-xs-12 col-sm-6 col-sm-image-3 col-md-4 col-lg-4" ng-repeat="image in item">
         <div class="thumbnail">
             <img ng-if="image.name" lazy-img="{{imagePath}}{{image.name}}" src="dest/resource/defaultimage.png" class="img-responsive" alt="{{image.desc}}">
-            <div class="caption">
+            <div ng-if="image.title || image.desc" class="caption">
                 <h4 ng-if="image.title"><span ng-bind="{{(3*pindex + $index + 1)}}"></span>.&nbsp;{{image.title}}</h4>
                 <p ng-if="image.desc"><span ng-if="!image.title">{{(3*pindex + $index + 1)}}.&nbsp;</span><span>{{image.desc}}</span></p>
             </div>

@@ -56,9 +56,9 @@ module.exports = function(grunt) {
       build: {
         files:[{
           expand: true,
-          cwd: 'src/',
-          src: ['**/*.{png,jpg,gif,jpeg}'],
-          dest: 'dest/'
+          cwd: 'src/data/upload/',
+          src: ['*.{png,jpg,gif,jpeg}'],
+          dest: 'dest/data/upload/'
         }]
       }
     },
