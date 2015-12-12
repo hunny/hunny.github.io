@@ -12,7 +12,7 @@ module.exports = function(grunt) {
       },
       js: {
         //src: ['dest/**/*.js'],
-        src: ['dest/js/angularLazyImg.js', 'dest/js/*.directive.js', 'dest/js/*.controller.js', 'dest/js/app.js'],
+        src: ['dest/js/angularLazyImg.js', 'dest/js/*.directive.js','dest/js/*.service.js', 'dest/js/*.controller.js', 'dest/js/app.js'],
         dest: 'dest/js/<%= pkg.name %>.js'
       }
     },
