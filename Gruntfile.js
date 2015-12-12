@@ -129,7 +129,7 @@ module.exports = function(grunt) {
     grunt.warn('There is no tasks to be defineded.\n');
   });
 
-  grunt.registerTask('runserver', ['connect:server']);
+  grunt.registerTask('run', ['connect:server']);
 
   grunt.registerTask('runlive', ['connect:livereload', 'watch:livereload']);
 

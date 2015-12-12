@@ -5,13 +5,18 @@
     });
     var app = angular.module('app', ['ngRoute', 'app.directives', 'app.controllers']);
     app.constant('PATH', {
-      tpl: 'dest/tpl/'
+      tpl: 'dest/tpl/',
+      image: 'dest/resource/'
     });
     app.config(['$routeProvider', 'PATH', function($routeProvider, PATH) {
         $routeProvider
         .when('/list', {
             templateUrl: PATH.tpl + 'home.tpl.html',
             controller: 'homeController'
+        })
+        .when('/itemimages/:id', {
+            templateUrl: PATH.tpl + 'itemimages.tpl.html',
+            controller: 'itemimagesController'
         })
         .otherwise({
             redirectTo: '/list'
