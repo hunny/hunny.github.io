@@ -26,6 +26,18 @@
             templateUrl: PATH.tpl + 'itemimages.tpl.html',
             controller: 'itemimagesController'
         })
+        .when('/listimages', {
+            templateUrl: PATH.tpl + 'itemimages.list.tpl.html',
+            controller: 'itemimageslistController'
+        })
+        .when('/restimages/:id', {
+            templateUrl: PATH.tpl + 'itemimages.rest.tpl.html',
+            controller: 'itemimagesrestController'
+        })
+        .when('/restimages', {
+            templateUrl: PATH.tpl + 'itemimages.rest.tpl.html',
+            controller: 'itemimagesrestController'
+        })
         .otherwise({
             redirectTo: '/list'
         });

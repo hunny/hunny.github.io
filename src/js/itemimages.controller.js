@@ -1,8 +1,8 @@
 (function(angular){
     'use strict';
     var app = angular.module('controller.itemimages', ['service.home']);
-    app.controller('itemimagesController', ['$scope', '$routeParams', 'PATH', 'httpHome',
-            function($scope, $routeParams, PATH, httpHome) {
+    app.controller('itemimagesController', ['$scope', '$routeParams', '$location', 'PATH', 'httpHome',
+            function($scope, $routeParams, $location, PATH, httpHome) {
         httpHome.getById($routeParams.id).then(function(data) {
             $scope.title = data.title;
             $scope.resource = PATH.resource;
@@ -18,6 +18,8 @@
                 i += 3;
             }
             $scope.items = items;
+        }, function(error) {
+            $location.path('list');
         });
     }]);
 })(window.angular);

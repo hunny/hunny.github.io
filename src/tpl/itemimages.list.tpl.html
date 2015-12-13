@@ -1,0 +1,45 @@
+<style type="text/css">
+    .optwidth {
+        width:98px;
+    }
+</style>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="index">序号</th>
+                <th>名称</th>
+                <th class="columndate">日期</th>
+                <th class="optwidth">
+                    <a class="btn btn-xs btn-info" ng-click="onadd('restimages')" role="button">
+                        <span class="glyphicon glyphicon-plus-sign"></span>
+                    </a>
+                    <a class="btn btn-xs btn-info" ng-click="oncheck()" role="button">
+                        <span class="glyphicon" ng-class="checkall?'glyphicon-check': 'glyphicon-unchecked'"></span>
+                    </a>
+                    <a class="btn btn-xs btn-info" ng-click="onsavedelete()" title="Save delete records" ng-disabled="deleteCount === 0" role="button">
+                        <span class="glyphicon glyphicon-ok-sign"></span>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in items">
+                <td>{{$index + 1}}</td>
+                <td><a href="#/itemimages/{{item.uuid}}" ng-click="onadd('itemimages')">{{item.title}}</a></td>
+                <td class="columndate">{{item.date | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td>
+                    <a class="btn btn-xs btn-info" ng-disabled="item.delete" ng-click="onedit('restimages',item)" role="button">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </a>
+                    <a class="btn btn-xs btn-danger" ng-disabled="item.delete" ng-click="ondelete(item)" role="button">
+                        <span class="glyphicon glyphicon-minus-sign"></span>
+                    </a>
+                    <a class="btn btn-xs btn-danger" ng-disabled="!item.delete" ng-click="onlock(item)" role="button">
+                        <span class="glyphicon glyphicon-lock"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

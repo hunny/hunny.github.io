@@ -32,7 +32,8 @@ body {
   background-color: #E8E8D8;
 }
 .columndate {
-	width: 130px;
+	width: 150px;
+	text-align: center;
 }
 @media (max-width: 767px) {
 	.nav-padding-rl0 {
