@@ -2,7 +2,7 @@
     'use strict';
     var app = angular.module('controller.itemimageslist', ['service.home']);
     app.controller('itemimageslistController', ['$scope', '$location', 'httpHome',
-            function($scope, $location, httpHome) {
+    function($scope, $location, httpHome) {
         httpHome.query().then(function(data) {
             $scope.items = data;
         });
@@ -14,7 +14,7 @@
             item.title = 'KKKK' + $scope.items.length;
             item.date = new Date();
             $scope.items.push(item);
-            //$location.path('#' + path + '/0');
+        //$location.path('#' + path + '/0');
         };
         $scope.ondelete = function(item) {
             item.delete = true;
@@ -26,7 +26,7 @@
             if (item.delete) {
                 return;
             }
-            $location.path('#' + path + '/' + item.uuid);
+            $location.path(path + '/' + item.uuid);
         };
         $scope.oncheck = function() {
             $scope.checkall = !$scope.checkall;
@@ -55,6 +55,7 @@
             $scope.deleteCount = deletes;
             $scope.checkall = (length !== 0 && length === deletes);
         }, true);
+        $scope.$on("$routeChangeStart", function (event, next, current) {});
     }]);
 })(window.angular);
 

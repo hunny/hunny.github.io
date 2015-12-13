@@ -17,6 +17,11 @@ body {
 .highlight {
 	background-color: #f8f8f8;
 }
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .table-bordered > thead > tr > th.index {
 	width:45px;
 	text-align: center;
@@ -34,6 +39,15 @@ body {
 .columndate {
 	width: 150px;
 	text-align: center;
+}
+.list-group-item .form-group:last-child {
+	margin-bottom:0px;
+}
+.list-group-item-heading.form-group {
+	margin-bottom:15px;
+}
+.list-group-item-minheight {
+	min-height: 55px;
 }
 @media (max-width: 767px) {
 	.nav-padding-rl0 {

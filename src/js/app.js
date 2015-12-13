@@ -14,7 +14,7 @@
       suffix: ''
     });
     app.config(['$routeProvider', 'PATH', function($routeProvider, PATH) {
-         $routeProvider
+        $routeProvider
         .when('', {
             redirectTo: '/list'
         })
@@ -30,11 +30,11 @@
             templateUrl: PATH.tpl + 'itemimages.list.tpl.html',
             controller: 'itemimageslistController'
         })
-        .when('/restimages/:id', {
+        .when('/restimages', {
             templateUrl: PATH.tpl + 'itemimages.rest.tpl.html',
             controller: 'itemimagesrestController'
         })
-        .when('/restimages', {
+        .when('/restimages/:id', {
             templateUrl: PATH.tpl + 'itemimages.rest.tpl.html',
             controller: 'itemimagesrestController'
         })
