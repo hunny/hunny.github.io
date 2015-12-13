@@ -8,7 +8,7 @@
         });
         $scope.checkall = false;
         $scope.deleteCount = 0;
-        $scope.onadd = function(path) {
+        $scope.onclickadd = function(path) {
             var item = {};
             item.uuid = '' + $scope.items.length;
             item.title = 'KKKK' + $scope.items.length;
