@@ -26,7 +26,7 @@
         <tbody>
             <tr ng-repeat="item in items">
                 <td>{{$index + 1}}</td>
-                <td><a href="#/itemimages/{{item.uuid}}" ng-click="onadd('itemimages')">{{item.title}}</a></td>
+                <td><a href="#/itemimages/{{item.uuid}}">{{item.title}}</a></td>
                 <td class="columndate">{{item.date | date:'yyyy-MM-dd HH:mm:ss'}}</td>
                 <td>
                     <a class="btn btn-xs btn-info" ng-disabled="item.delete" ng-click="onedit('restimages',item)" role="button">
