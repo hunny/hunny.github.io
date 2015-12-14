@@ -117,6 +117,20 @@ module.exports = function(grunt) {
         },
         files: ['index.html']
       }
+    },
+    htmlmin: {
+      buildtpl: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: [{
+          expand: true,
+          cwd: 'src/tpl/',
+          src: '{,*/}*.tpl.html',
+          dest: 'dest/tpl'
+        }]
+      }
     }
   });
 
@@ -124,6 +138,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -131,9 +146,9 @@ module.exports = function(grunt) {
   // grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('build', ['copy', 'jshint', 'concat', 'uglify', 'cssmin', 'clean']);
+  grunt.registerTask('build', ['copy', 'jshint', 'concat', 'uglify', 'cssmin', 'htmlmin', 'clean']);
 
-  grunt.registerTask('release', ['copy', 'jshint', 'concat', 'uglify', 'cssmin', 'imagemin', 'clean']);
+  grunt.registerTask('release', ['copy', 'jshint', 'concat', 'uglify', 'cssmin', 'htmlmin', 'imagemin', 'clean']);
 
   grunt.registerTask('default', function() {
     grunt.warn('There is no tasks to be defineded.\n');

@@ -40,6 +40,9 @@ body {
 	width: 160px;
 	text-align: center;
 }
+.optwidth {
+    width:98px;
+}
 .list-group-item .form-group:last-child {
 	margin-bottom:0px;
 }

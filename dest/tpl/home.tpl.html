@@ -1,18 +1,1 @@
-<div class="table-responsive">
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th class="index">序号</th>
-                <th>名称</th>
-                <th class="columndate">日期</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="item in items">
-                <td>{{$index + 1}}</td>
-                <td><a href="#/itemimages/{{item.uuid}}">{{item.title}}</a></td>
-                <td>{{item.date}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<div class="table-responsive"><table class="table table-bordered table-hover"><thead><tr><th class="index">序号</th><th>名称</th><th class="columndate">日期</th></tr></thead><tbody><tr ng-repeat="item in items"><td>{{$index + 1}}</td><td><a href="#/itemimages/{{item.uuid}}">{{item.title}}</a></td><td>{{item.date}}</td></tr></tbody></table></div>

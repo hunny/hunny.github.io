@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Paste Clipboard Image</title>
+    <script src="public/jquery/jquery.min.js"></script>
+    <script src="pasteimage.js"></script>
+    <style type="text/css">
+	body {
+		width: 700px;
+		margin: 0 auto;
+	}
+	div#editor-box {
+		border: 2px dashed #7f7f7f;
+		text-align: center;
+		vertical-align: middle;
+		padding: 10px 10px 10px 10px;
+		line-height: 10px;
+		max-height: 500px;
+		max-width: 100%;
+	}
+	div#editor-box > img {
+		max-width: 500px;
+		max-height: 500px;
+	}
+	.contain {
+		background-size: 100%;
+		background-repeat: no-repeat;
+	}
+    </style>
+</head>
+<body>
+	<div id="console"></div>
+	<div>Note: Paste Print screen or captured files here to attach</div>
+	<div id="editor-box" class="target" contenteditable="true"></div>
+	<div id="backgroundimage" style="width:500px;height:400px;" contenteditable="true"></div>
+	<script type="text/javascript">
+		$(function() {
+			$("html").pasteImageReader(function(results) {
+				var dataURL, filename;
+				filename = results.filename, dataURL = results.dataURL, results;
+				$("#backgroundimage").css({
+					backgroundImage: "url(" + dataURL + ")"
+				});
+				return results;
+			});
+
+		 //    var $data, $size, $type, $test, $width, $height;
+
+			// $("html").pasteImageReader(function (results) {
+		 //        var dataURL, filename;
+		 //        filename = results.filename, dataURL = results.dataURL;
+		 //        $data.text(dataURL);
+		 //        $size.val(results.file.size);
+		 //        $type.val(results.file.type);
+		 //        $test.attr('href', dataURL);
+		 //        var img = document.createElement('img');
+		 //        img.src = dataURL;
+		 //        var w = img.width;
+		 //        var h = img.height;
+		 //        $width.val(w); $height.val(h);
+		 //        $("div#editor-box").height(h);
+		 //        return $(".active").css({
+		 //            backgroundImage: "url(" + dataURL + ")"
+		 //        }).data({ 'width': w, 'height': h });
+		 //    });
+
+		 //    $(function () {
+		 //        $data = $('.data');
+		 //        $size = $('.size');
+		 //        $type = $('.type');
+		 //        $test = $('#test');
+		 //        $width = $('#width');
+		 //        $height = $('#height');
+		 //        $('.target').on('click', function () {
+		 //            var $this = $(this);
+		 //            var bi = $this.css('background-image');
+		 //            if (bi != 'none') {
+		 //                $data.text(bi.substr(4, bi.length - 6));
+		 //            }
+		 //            $('.active').removeClass('active');
+		 //            $this.addClass('active');
+		 //            $this.toggleClass('contain');
+		 //            $width.val($this.data('width'));
+		 //            $height.val($this.data('height'));
+		 //            if ($this.hasClass('contain')) {
+		 //                $this.css({ 'width': $this.data('width'), 'height': $this.data('height'), 'z-index': '10' });
+		 //            } else {
+		 //                $this.css({ 'width': '', 'height': '', 'z-index': '' });
+		 //            }
+		 //        });
+		 //    });
+		});
+	</script>
+</body>
+</html>
