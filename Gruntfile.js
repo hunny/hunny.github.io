@@ -60,6 +60,14 @@ module.exports = function(grunt) {
           src: ['*.{png,jpg,gif,jpeg}'],
           dest: 'dest/data/upload/'
         }]
+      },
+      buildresource: {
+        files:[{
+          expand: true,
+          cwd: 'src/resource/',
+          src: ['*.{png,jpg,gif,jpeg}'],
+          dest: 'dest/resource/'
+        }]
       }
     },
     //qunit: {
@@ -124,6 +132,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('build', ['copy', 'jshint', 'concat', 'uglify', 'cssmin', 'clean']);
+
+  grunt.registerTask('release', ['copy', 'jshint', 'concat', 'uglify', 'cssmin', 'imagemin', 'clean']);
 
   grunt.registerTask('default', function() {
     grunt.warn('There is no tasks to be defineded.\n');
