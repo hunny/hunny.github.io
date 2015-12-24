@@ -51,7 +51,6 @@
                         //snapshoot();
                         return found = true;
                     }
-                    backgroundImage
                 });
             });
         });
