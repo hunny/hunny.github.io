@@ -98,6 +98,7 @@
 	        };
 	    }
 	    script.src = url;
+	    $('script[locale][src="' + url + '"]').remove();
 	    document.getElementsByTagName("head")[0].appendChild(script);
 	}
 	function i18n(key) {
