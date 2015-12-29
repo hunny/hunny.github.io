@@ -71,7 +71,7 @@
             method = methods[method];
             // 我们的方法是作为参数传入的，把它从参数列表中删除，因为调用方法时并不需要它
             arguments = Array.prototype.slice.call(arguments, 1);
-        } else if(typeof(method) == 'object' || !method ) {
+        } else if (typeof(method) == 'object' || !method) {
             var options = method;
             settings = $.extend(settings, options);
         } else {
