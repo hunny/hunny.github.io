@@ -25,6 +25,11 @@ module.exports = function(grunt) {
         files: {
           'dest/js/<%= pkg.name %>.min.js': ['<%= concat.js.dest %>']
         }
+      },
+      buildi18n: {
+        files: {
+          'dest/i18n.min.js': ['test/i18n.js']
+        }
       }
     },
     cssmin: {
