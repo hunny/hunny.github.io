@@ -16,6 +16,9 @@
 		},
 		expireHours: function() {
 			return 7 * 24;
+		},
+		i18nName: function() {
+			return /i18n\.js$/;
 		}
 	};
 	var methods = {
@@ -40,22 +43,22 @@
 			for (var i = 0; i < scripts.length; i++) {
 				var elem = scripts[i];
 				var src = elem.getAttribute('src');
-				if (/i18n\.js$/.test(src)) {
+				if (settings.i18nName().test(src)) {
 					path = src;
 				}
 			}
 			if (null == path) {
-				throw new Error('File name i18nutils.js not found.');
+				throw new Error('File name i18n.js not found.');
 			}
 			var locale = settings.locale();
-			if (/en_US/ig.test(locale)) {
+			if (/en-US/ig.test(locale)) {
 				locale = 'en-US';
 			} else if (/zh-CN/ig.test(locale)) {
 				locale = 'zh-CN';
 			} else {//default language
 				locale = 'en-US';
 			}
-			path = path.replace(/i18n\.js$/, 'i18n_' + locale + '.js');
+			path = path.replace(settings.i18nName(), 'i18n_' + locale + '.js');
 			loadScript(path, locale, function() {
 				i18ninit();
 			});
