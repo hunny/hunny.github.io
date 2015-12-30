@@ -101,8 +101,11 @@
 	            callback();
 	        };
 	    }
+	    if (url.indexOf('?') == -1) {
+	    	url = url + '?_=' + new Date().getTime();
+	    }
 	    script.src = url;
-	    $('script[locale][src="' + url + '"]').remove();
+	    $('script[locale]').remove();
 	    document.getElementsByTagName("head")[0].appendChild(script);
 	}
 	function i18n(key) {
