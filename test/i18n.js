@@ -19,6 +19,9 @@
 		},
 		i18nName: function() {
 			return /i18n\.js$/;
+		},
+		api: function() {
+			return ApiUrl;
 		}
 	};
 	var methods = {
@@ -51,15 +54,16 @@
 				throw new Error('File name i18n.js not found.');
 			}
 			var locale = settings.locale();
-			if (/en-US/ig.test(locale)) {
+			if (/^en-/ig.test(locale)) {
 				locale = 'en-US';
-			} else if (/zh-CN/ig.test(locale)) {
+			} else if (/^zh-/ig.test(locale)) {
 				locale = 'zh-CN';
 			} else {//default language
 				locale = 'en-US';
 			}
 			path = path.replace(settings.i18nName(), 'i18n_' + locale + '.js');
 			loadScript(path, locale, function() {
+				i18npost(locale, function(src, locale) {});
 				i18ninit();
 			});
 			return this;
@@ -118,15 +122,36 @@
 		});
 	}
 	function i18nchange(locale) {
-		var cookieName = settings.cookieName();
-		delCookie(cookieName);
-		addCookie(cookieName, locale);
-		var script = $('script[locale]');
-		var src = script.attr('src');
-		var l = script.attr('locale');
-		src = src.replace(l, locale);
-		loadScript(src, locale, function() {
-			i18ninit(locale?locale:'zh-CN');
+		i18npost(locale, function(src, locale) {
+			loadScript(src, locale, function() {
+				i18ninit(locale?locale:'zh-CN');
+			});
+		});
+	}
+	function i18npost(locale, callback) {
+		$.ajax({
+			type: 'post',
+			url: ApiUrl + "/index.php?act=login&op=i18n",	
+			data: {i18n:locale},
+			dataType:'json',
+			success: function(result) {
+				if (result.datas.i18n) {
+					var locale = result.datas.i18n;
+					var cookieName = settings.cookieName();
+					delCookie(cookieName);
+					addCookie(cookieName, locale);
+					var script = $('script[locale]');
+					var src = script.attr('src');
+					var l = script.attr('locale');
+					src = src.replace(l, locale);
+					callback(src, locale);
+				} else {
+					alert('Request Error.');
+				}
+			},
+			error: function() {
+				alert('Request Error.');
+			}
 		});
 	}
 	function addCookie(name, value) {
@@ -161,5 +186,11 @@
 	}
 })($);
 $(function() {
+	// $.extend({i18n: function(key) {
+	// 	return $(document).i18n('i18n', key);
+	// }});
+	$.i18n = function(key) {
+		return $(document).i18n('i18n', key);
+	};
 	$(document).i18n();
 });
