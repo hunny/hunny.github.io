@@ -109,7 +109,11 @@
 	    document.getElementsByTagName("head")[0].appendChild(script);
 	}
 	function i18n(key) {
-		return settings.resource()[key];
+		var r = settings.resource();
+		if (!r) {
+			return '';
+		}
+		return r[key];
 	}
 	function i18ninit() {
 		$('[i18n]').each(function() {
