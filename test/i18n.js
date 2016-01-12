@@ -29,8 +29,8 @@
 			settings = $.extend({}, settings, option);
 			return this;
 		},
-		changei18n: function(locale) {
-			i18nchange(locale);
+		changei18n: function(locale, callback) {
+			i18nchange(locale, callback);
 			return this;
 		},
 		i18n: function(key) {
@@ -128,10 +128,13 @@
 			$this.attr(val, i18n(key));
 		});
 	}
-	function i18nchange(locale) {
+	function i18nchange(locale, callback) {
 		i18npost(locale, function(src, locale) {
 			loadScript(src, locale, function() {
 				i18ninit(locale?locale:'zh-CN');
+				if ((typeof callback) === 'function') {
+					callback(locale);
+				}
 			});
 		});
 	}
@@ -175,13 +178,19 @@
 		name = $.trim(name);
 		var strcookie = document.cookie;
 		var arrcookie = strcookie.split("; ");
+		var result = '';
 		for (var i = 0; i < arrcookie.length; i++) {
 			var arr = arrcookie[i].split("=");
 			if ($.trim(arr[0]) == name) {
-				return unescape($.trim(arr[1]));
+				result = $.trim(unescape($.trim(arr[1])));
+				break;
 			}
 		}
-		return null;
+		result = $.trim(result);
+		if (result == '') {
+			return null;
+		}
+		return result;
 	}
 	function delCookie(name) {
 		var exp = new Date();
