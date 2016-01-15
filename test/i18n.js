@@ -127,6 +127,14 @@
 			var val = $this.attr('i18nval');
 			$this.attr(val, i18n(key));
 		});
+		//document.dispatchEvent(new Event('i18n.ready'));
+		document.dispatchEvent(new CustomEvent('i18n.ready', {
+	        detail: {
+	            message:'i18n ready.'
+	        },
+	        bubbles:true,
+	        cancelable:true
+    	}));
 	}
 	function i18nchange(locale, callback) {
 		i18npost(locale, function(src, locale) {
