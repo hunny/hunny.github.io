@@ -93,8 +93,8 @@
 	function loadScript(url, locale, callback){
 	    var script = document.createElement("script")
 	    script.type = "text/javascript";
-	    script.setAttribute("locale", locale)
-	    if (script.readyState){  //IE
+	    script.setAttribute("locale", locale);
+	    if (script.readyState) {  //IE
 	        script.onreadystatechange = function() {
 	            if (script.readyState == "loaded" ||
 	                    script.readyState == "complete"){
