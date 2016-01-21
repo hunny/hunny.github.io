@@ -20,6 +20,9 @@
 		i18nName: function() {
 			return /i18n\.js$/;
 		},
+		userKey: function() {
+			return 'key';
+		},
 		api: function() {
 			return ApiUrl;
 		}
@@ -155,7 +158,7 @@
 		$.ajax({
 			type: 'post',
 			url: ApiUrl + "/index.php?act=login&op=i18n",	
-			data: {i18n:locale},
+			data: {i18n:locale,key:getCookie(settings.userKey())},
 			dataType:'json',
 			success: function(result) {
 				if (result.datas.i18n) {
