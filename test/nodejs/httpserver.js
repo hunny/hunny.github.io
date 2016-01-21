@@ -4,4 +4,5 @@ http.createServer(function(request, response) {
 		'Content-Type': 'text-plain'
 	});
 	response.end('Hello World\n');
+	console.log('Content-Type');
 }).listen(8124);

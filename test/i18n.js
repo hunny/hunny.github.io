@@ -39,6 +39,9 @@
 		getCookie: function() {
 			return getCookie(settings.cookieName());
 		},
+		trigger: function() {
+			return i18ntrigger();
+		},
 		loadI18n: function(locale) {
 			var language = (locale == undefined || locale == null || locale == '') ? 'en-US' : locale;
 			var scripts = document.getElementsByTagName("script");
@@ -89,15 +92,17 @@
 	    script.type = "text/javascript";
 	    script.setAttribute("locale", locale)
 	    if (script.readyState){  //IE
-	        script.onreadystatechange = function(){
+	        script.onreadystatechange = function() {
 	            if (script.readyState == "loaded" ||
 	                    script.readyState == "complete"){
 	                script.onreadystatechange = null;
+					$(document).trigger('i18n:loaded');
 	                callback();
 	            }
 	        };
 	    } else {  //Others
-	        script.onload = function(){
+	        script.onload = function() {
+				$(document).trigger('i18n:loaded');
 	            callback();
 	        };
 	    }
@@ -115,26 +120,25 @@
 		}
 		return r[key];
 	}
-	function i18ninit() {
+	function i18ntrigger() {
+		var i = 0;
 		$('[i18n]').each(function() {
 			var $this = $(this);
 			var key = $this.attr('i18n');
 			$this.html(i18n(key));
+			i++;
 		});
 		$('[i18nkey][i18nval]').each(function() {
 			var $this = $(this);
 			var key = $this.attr('i18nkey');
 			var val = $this.attr('i18nval');
 			$this.attr(val, i18n(key));
+			i++;
 		});
-		//document.dispatchEvent(new Event('i18n.ready'));
-		// document.dispatchEvent(new CustomEvent('i18n.ready', {
-	 //        detail: {
-	 //            message:'i18n ready.'
-	 //        },
-	 //        bubbles:true,
-	 //        cancelable:true
-  //   	}));
+		return i;
+	}
+	function i18ninit() {
+		i18ntrigger();
 		$(document).trigger('i18n:ready');
 	}
 	function i18nchange(locale, callback) {
