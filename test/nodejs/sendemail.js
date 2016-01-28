@@ -42,7 +42,7 @@ function mail(i) {
 }
 
 for (var i = 0; i < 1000; i ++) {
-	setTimeout(function() {
+	setTimeout(function(i) {
 		mail(i);
 	},  (i / 100));
 }
