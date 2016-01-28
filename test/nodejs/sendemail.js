@@ -23,22 +23,26 @@ var mailOptions = {
     html: '<b>Hello world</b>' // html body 
 };
 
+function mail(i) {
+	var mailOptions = {
+	    from: 'info@test.com', // sender address 
+	    to: 'xx@xx.com,zz@zz.com,cc@cc.com', // list of receivers 
+        cc: 'ok@scg.co.th', // Comma separated list or an array
+	    subject: 'Hello ✔' + (i + 1), // Subject line 
+	    text: 'Hello world', // plaintext body 
+	    html: '<b>Hello world</b>' // html body 
+	};
+	// send mail with defined transport object 
+	transporter.sendMail(mailOptions, function(error, info) {
+	    if (error) {
+	        return console.log('Message[' + i + '] sent error: ' + error);
+	    }
+	    console.log('Message[' + i + '] sent: ' + info.response);
+	});
+}
+
 for (var i = 0; i < 1000; i ++) {
 	setTimeout(function() {
-		var mailOptions = {
-		    from: 'info@cdp-life.com', // sender address 
-		    to: 'xx@xx.com,zz@zz.com,cc@cc.com', // list of receivers 
-	        cc: 'ok@scg.co.th', // Comma separated list or an array
-		    subject: 'Hello ✔' + (i + 1), // Subject line 
-		    text: 'Hello world', // plaintext body 
-		    html: '<b>Hello world</b>' // html body 
-		};
-		// send mail with defined transport object 
-		transporter.sendMail(mailOptions, function(error, info) {
-		    if (error) {
-		        return console.log('Message[' + i + '] sent error: ' + error);
-		    }
-		    console.log('Message[' + i + '] sent: ' + info.response);
-		});
+		mail(i);
 	},  (i / 100));
 }
