@@ -157,7 +157,7 @@
 	function i18npost(locale, callback) {
 		$.ajax({
 			type: 'post',
-			url: ApiUrl + "/index.php?act=login&op=i18n",	
+			url: ApiUrl + "/index.php?act=login&op=i18n&_=" + (new Date().getTime()),	
 			data: {i18n:locale,key:getCookie(settings.userKey())},
 			dataType:'json',
 			success: function(result) {
@@ -172,11 +172,15 @@
 					src = src.replace(l, locale);
 					callback(src, locale);
 				} else {
-					alert('Request Error.');
+					try {
+						console.log('Request error: i18n message return error.');
+					} catch (e) {}
 				}
 			},
-			error: function() {
-				alert('Request Error.');
+			error: function(xhr, text_status, error_thrown) {
+				try {
+					console.log('Request error: ' + text_status);
+				} catch (e) {}
 			}
 		});
 	}

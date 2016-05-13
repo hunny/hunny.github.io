@@ -161,6 +161,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('run', ['connect:server']);
 
+  grunt.registerTask('uglifyi18n', ['uglify:buildi18n']);
+
   grunt.registerTask('runlive', ['connect:livereload', 'watch:livereload']);
 
   grunt.registerTask('manualclean', function() {
